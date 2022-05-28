@@ -15,15 +15,13 @@ BOLD_data <- bind_rows(BOLD_data) %>%
   select(ID, TR, everything())
 
 # Ascent TRs
-asc_TRs <- c(57:68, 74:82, 135:143, 156:168, 175:181)
+asc_TRs <- list("A1" = 57:68, "A2" = 74:82, "A3" = 135:143, "A4" = 156:168, "A5" = 175:181)
 
 # Descent TRs
-des_TRs <- c(68:73, 85:90, 146:155, 169:175, 181:189)
+des_TRs <- list("D1" = 68:73, "D2" = 85:90, "D3" = 146:155, "D4" = 169:175, "D5" = 181:189)
 
 # Ascent BOLD Data
-BOLD_data_asc <- BOLD_data %>%
-  filter(TR %in% asc_TRs)
+BOLD_data_asc <- split_label(BOLD_data, asc_TRs, "TR")
 
 # Descent BOLD Data
-BOLD_data_des <- BOLD_data %>%
-  filter(TR %in% des_TRs)
+BOLD_data_des <- split_label(BOLD_data, des_TRs, "TR")
