@@ -13,6 +13,11 @@ data_xl = pd.ExcelFile(path, engine="openpyxl")
 first_sheet = data_xl.parse(data_xl.sheet_names[0], header=None)
 data = np.zeros((first_sheet.shape[0], first_sheet.shape[1], len(data_xl.sheet_names)))
 
+# Print Details
+print("Number of TRs: ", data.shape[0])
+print("Number of Voxels: ", data.shape[1])
+print("Number of Subjects: ", data.shape[2])
+
 print("Converting Excel File to Numpy Tensor...")
 
 # Converts the Excel Sheets corresponding to the ROIs to Tensor
