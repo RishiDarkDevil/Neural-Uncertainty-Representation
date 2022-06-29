@@ -1,3 +1,6 @@
+# T-PHATE addition on top of PHATE is present at the bottom of this file
+# Check the PHATE class for changes to the diff_op changes
+
 # author: Daniel Burkhardt <daniel.burkhardt@yale.edu>
 # (C) 2017 Krishnaswamy Lab GPLv2
 
@@ -1586,6 +1589,8 @@ class PHATE(BaseEstimator):
 
         return t_opt
 
+# --------------- Addition by RishiDarkDevil---------
+# The following code calculates the temporal affinity matrix which is used for T-PHATE on top of PHATE
 # input data is TR x Voxel
 def temporal_affinity_matrix(data):
   # Calculates the Autocovariance of a time series Xi with given lag
