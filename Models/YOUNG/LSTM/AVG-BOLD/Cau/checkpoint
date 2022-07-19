@@ -1,0 +1,2 @@
+model_checkpoint_path: "model_weights-1L-16H-1D-03Drop-1Ahead-Cau"
+all_model_checkpoint_paths: "model_weights-1L-16H-1D-03Drop-1Ahead-Cau"
