@@ -1,2 +1,2 @@
-model_checkpoint_path: "model_weights-2L-32H-2D-3Drop-1Ahead-PCC"
-all_model_checkpoint_paths: "model_weights-2L-32H-2D-3Drop-1Ahead-PCC"
+model_checkpoint_path: "model_weights-1L-16H-4D-3Drop-1Ahead-PCC"
+all_model_checkpoint_paths: "model_weights-1L-16H-4D-3Drop-1Ahead-PCC"
