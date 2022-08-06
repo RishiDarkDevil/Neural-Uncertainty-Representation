@@ -1,4 +1,5 @@
 # Neural Uncertainty Representation
+![Uncertainty Illustration](Report/Plots/uncertainty-illustration.jpg)\
 Understanding the Human Brain's working have always fascinated me. The way we learn from things, the way we abstract an idea in our brain, the way we percieve and think of things around us is all related to the highly evolved organ- **The Human Brain**. From the ancient times, endeavours were made by philosophers to understand the functioning of brain and how it abstracts concepts and feelings. In the past of these modern times, scientists tried several methods, techniques, experiments and theory to explain the complex brain functions and even more complex **the representation of emotions in human brain**. That is exactly what we try to deal with here.
 
 # Introduction
@@ -56,7 +57,6 @@ TPHATE as a variant of PHATE that uses a dual-view diffusion operator to embed t
 
 ![TPHATE Algorithm Visualization](Report/Plots/TPHATE.png) 
 *Busch et al., TPHATE Algorithm Visualized taken from Temporal PHATE: A multi-view manifold learning method for brain state trajectories*\
-*Moon et al., Nature Biotechnology 2019, Visualizing structure and transitions in high-dimensional biological data*\
 It is suited to be applied in the context of High-Dimensional(Number of Voxels) BOLD time series i.e. the matrix $\bar{X_j}$ for young and old separately for each $j^{th}$ ROI.
 
 ## Sequence Modelling
