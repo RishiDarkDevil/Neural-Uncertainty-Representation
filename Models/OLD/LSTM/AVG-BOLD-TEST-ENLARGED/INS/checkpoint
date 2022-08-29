@@ -1,0 +1,2 @@
+model_checkpoint_path: "model_weights-1L-32H-2D-3Drop-15Ahead-INS"
+all_model_checkpoint_paths: "model_weights-1L-32H-2D-3Drop-15Ahead-INS"
