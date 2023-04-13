@@ -1,5 +1,8 @@
 # Neural Uncertainty Representation
 ![Uncertainty Illustration](Report/Plots/uncertainty-illustration.jpg)\
+
+Check out the presentation slides for this work here at [Neural Uncertainty for Differential Emotion Perception](https://docs.google.com/presentation/d/e/2PACX-1vTjkgRzMsWNz7TSoUFUCKKY3sRRfGdyZ3-ir00GGI0mAl2JeuM9UstKTRnTr61I1Q/pub?start=true&loop=true&delayms=3000)
+
 Understanding the Human Brain's working have always fascinated me. The way we learn from things, the way we abstract an idea in our brain, the way we percieve and think of things around us is all related to the highly evolved organ- **The Human Brain**. From the ancient times, endeavours were made by philosophers to understand the functioning of brain and how it abstracts concepts and feelings. In the past of these modern times, scientists tried several methods, techniques, experiments and theory to explain the complex brain functions and even more complex **the representation of emotions in human brain**. That is exactly what we try to deal with here.
 
 # Introduction
