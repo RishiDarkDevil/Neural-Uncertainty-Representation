@@ -1,5 +1,7 @@
 # Neural Uncertainty Representation
-![Uncertainty Illustration](Report/Plots/uncertainty-illustration.jpg)\
+<p align="center">
+  <img src="Report/Plots/uncertainty-illustration.jpg"/>
+</p>
 
 Check out the presentation slides for this work here at [Neural Uncertainty for Differential Emotion Perception](https://docs.google.com/presentation/d/e/2PACX-1vTjkgRzMsWNz7TSoUFUCKKY3sRRfGdyZ3-ir00GGI0mAl2JeuM9UstKTRnTr61I1Q/pub?start=true&loop=true&delayms=3000)
 
@@ -50,7 +52,9 @@ In our case we applied PCA on the matrix $\bar{X_j}$ for young and old separatel
 PHATE provides a denoised, two or three-dimensional visualization of the complete branching trajectory structure in high-dimensional data. It uses heat-diffusion processes, which naturally denoise the data, to compute data point affinities. Then, PHATE creates a diffusion-potential geometry by free-energy potentials of these processes. This geometry captures high-dimensional trajectory structures, while enabling a natural embedding of the intrinsic data geometry. This embedding accurately visualizes trajectories and data distances, without requiring strict assumptions typically used by path-finding and tree-fitting algorithms, which have recently been used for pseudotime orderings or tree-renderings of high dimensional data with hierarchy.\
 Given a dataset of voxel time-series data, $\bar{X_j}$. Construction of the PHATE diffusion geometry starts by computing the Euclidean distance matrix $D$ between data pairs, where $D(i, j) = ||X_{i,} - X_{j,}||_2$. $D$ is then converted into a local affinity matrix $K$ using an adaptive bandwidth Gaussian kernel. The affinity matrix $K$ is then row-normalized to get the initial probabilities $P_D$, which are used for the Markovian random-walk diffusion process.The diffusion operator $P_D$ is then raised to the $t_D^{th}$ power, where $t_D$ is the PHATE optimal diffusion time scale, to perform a $t_D$-step random walk over the data graph. This specific diffusion process infers more global relations beyond the local affinities. To further preserve both local and manifold-intrinsic global structure of data, PHATE computes the diffusion potential $U$ by taking the logarithm of $P^{tD}_D$ and the diffusion potential distance $D_U$ using distance between row pairs of $U$. This diffusion potential distance can be reduced to $2-3$ dimensions for visualization or to any other dimensionality (such as that obtained by cross-validation) by performing metric MDS (MMDS).
 
-![PHATE Algorithm Visualization](Report/Plots/PHATE-Better.png) 
+<p align="center">
+  <img src="Report/Plots/PHATE-Better.png"/>
+</p>
 *Moon et al., Nature Biotechnology 2019, Visualizing structure and transitions in high-dimensional biological data*\
 In our case we applied PCA on the matrix $\bar{X_j}$ for young and old separately for each $j^{th}$ ROI. It better captured the closeness between the datapoints wrt vicinity as well as temporal vicinity.
 
@@ -58,7 +62,9 @@ In our case we applied PCA on the matrix $\bar{X_j}$ for young and old separatel
 TPHATE is a modified PHATE algorithm which is able to capture the temporal aspect of the data. The algorithm works the same as original PHATE except for the temporal component infused in the diffusion matrix using the auto-covariance function in a Temporal Affinity Matrix, which is explained below.\
 TPHATE as a variant of PHATE that uses a dual-view diffusion operator to embed timeseries data in a low-dimensional space. The first view, $P_D$, of the diffusion operator uses the same process as PHATE to build an affinity matrix based on the Euclidean distance between data samples (here, timepoints) and then row-normalize it to obtain the transition probability matrix, where PD is a TxT matrix. The second view $P_T$ is based on an affinity matrix that summarizes the autocorrelation function of the data. First we calculate a direct estimator of the autocovariance of the timeseries vector $V$ from each voxel using $|V| − 1$ lags. Then the functions are averaged across voxels to obtain a single autocorrelation function ($acf$) and smoothed with a rolling average over $w$ timepoints, to account for possible jittering around where $acf = 0$. Next, we find the first lag $lagmax$ where $acf = 0$, which defines the maximum width of smoothing for the temporal affinity matrix $A$. The temporal affinity matrix A is calculated as $A(i, j) = acf (i, j)$, $0 < |i − j| \leq lagmax$ and $0$ elsewhere. The autocorrelative probability $P_t$ is obtained by row-normalizing the affinity matrix $A$. These views are combined with alternating diffusion into a single operator $P = P_D P_T$, which is used as the initial probabilities for diffusion. The rest of constructing diffusion geometry and data visualization is performed the same as in PHATE. This dual-view diffusion step allows T-PHATE to learn data geometry and latent signals that represent cognitive processes that play out over longer temporal windows.
 
-![TPHATE Algorithm Visualization](Report/Plots/TPHATE.png) 
+<p align="center">
+  <img src="Report/Plots/TPHATE.png"/>
+</p>
 *Busch et al., TPHATE Algorithm Visualized taken from Temporal PHATE: A multi-view manifold learning method for brain state trajectories*\
 It is suited to be applied in the context of High-Dimensional(Number of Voxels) BOLD time series i.e. the matrix $\bar{X_j}$ for young and old separately for each $j^{th}$ ROI.
 
@@ -109,27 +115,38 @@ Average BOLD LSTM         |  Multivariate(All) BOLD LSTM
 ## Behavioral analysis
 To prove that the older people have differential emotion perception than the Young individuals, we looked into their accuracy for the FER task for the Happy, Sad and Fear emotions. We found that for all three emotions the accuracy differed significantly between the two groups (Happy: Mean Accuracy: $98\%$(Y),  $96\%$(O); $p<0.001$; Cohen’s $d = 0.5$; Sad: Mean Accuracy: $96\%$(Y), $83\%$(O); $p<0.0001$; Cohen’s $d=0.99$; Fear: Mean Accuracy: $84\%$(Y), $62\%$(O); $p<0.0001$, Cohen’s $d = 1.13$). However, the negative emotions showed much more difference with a larger effect size.
 
-![Behavioral Analysis Plot](Report/Plots/BA-1.png) 
+<p align="center">
+  <img src="Report/Plots/BA-1.png"/>
+</p>
 *The figure shows the difference in Accuracy between the Old and Young groups for the Happy, Sad and Fear emotions in the FER task.*
 
 ## Temporal Principle Component Analysis
 We employed a spatio-temporal PCA on the BOLD time series extracted from $20$ ROIs (containing sensory, multi-sensory and higher order cortical areas). We found that the first two components could explain $71\%$ of the variance in Young compared to only $57.8\%$  variance in Old hinting on the idiosyncratic nature of their BOLD activation.
 
-![Temporal PCA Scree Plot](Report/Plots/TPCA-1.png) 
+
+<p align="center">
+  <img src="Report/Plots/TPCA-1.png"/>
+</p>
 *Scree plot for the PCA showing the cumulative and proportion of variance explained by each component for the Young and the Old*\
 First, to assess the temporal evolution of the first $2$ components, we performed a temporal PCA by computing the dot product of the PC weight vectors with the BOLD time series of the ROIs. This yielded corresponding tPCs (temporal components), which were then averaged across the subjects to obtain the group level tPCs for the Young and Old. We found that the tPC1 correlated highly with Ascent Uncertainty for the Young ($r=0.93$) and Old ($r=0.76$).
 
-![Temporal PCA Ascent Plot](Report/Plots/TPCA-2.png) 
+<p align="center">
+  <img src="Report/Plots/TPCA-2.png"/>
+</p>
 *Temporal PCA showing the correlation of tPC1 with the Ascent Uncertainty for the two groups*\
 Thereafter, we performed a spatial PCA on individual subject’s multivariate data from the Ascent and Descent scenes to obtain the weights associated with each ROI for the first $2$ components. We found that for Young this component was mainly mediated by the lateral regions of the brain while for the Old it was mainly mediated by the medial regions.
 
-![Temporal PCA Loadings](Report/Plots/TPCA-3.png) 
+<p align="center">
+  <img src="Report/Plots/TPCA-3.png"/>
+</p>
 *Spatial loadings for the PC1 for Young and Old*\
 
 ## Temporal Potential of Heat-diffusion for Affinity-based Trajectory Embedding
 A recent study showed that for complex representation architecture Temporal PHATE can capture both the global and local information of the data thus adding onto our previous result. We wanted to see whether we can find a significant difference in the low dimensional signature of the lateral and medial orbitofrontal cortex by implementing this TPHATE. The motivation for choosing these areas comes from the previous work from this lab.
 
-![TPHATE Results for mOFC and lOFC](Report/Plots/TPHATE-1.png) 
+<p align="center">
+  <img src="Report/Plots/TPHATE-1.png"/>
+</p> 
 *TPHATE on the voxel wise BOLD data of the lOFC and mOFC for the Young and the Old*
 
 ## Long Short-Term Memory Neural Network
